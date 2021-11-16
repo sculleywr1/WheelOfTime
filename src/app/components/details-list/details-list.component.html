@@ -1,0 +1,44 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="search by name" [(ngModel)]="name" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="searchName()">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Character List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let detail of details; let i = index" [class.active]="i == currentIndex" (click)="setActiveDetail(detail, i)">
+        {{ detail.name }}
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="col-md-6">
+    <div *ngIf="currentDetail.id">
+      <h4>Character</h4>
+      <div>
+        <label><strong>Name: </strong></label> {{currentDetail.name}}
+      </div>
+      <div>
+        <label><strong>Nationality: </strong></label> {{currentDetail.nationality}}
+      </div>
+      <div>
+        <label><strong>Channeler: </strong></label> {{currentDetail.channeler}}
+      </div>
+      <div>
+        <label><strong>Gender: </strong></label> {{currentDetail.gender}}
+      </div>
+
+      <a class="badge badge-warning" routerLink="/details/{{ currentDetail.id}}">Edit</a>
+    </div>
+
+    <div *ngIf="!currentDetail">
+      <br/>
+      <p>Please click on a Character...</p>
+    </div>
+  </div>
+</div>

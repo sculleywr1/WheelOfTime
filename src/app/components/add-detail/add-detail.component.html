@@ -1,0 +1,32 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="detail.name" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="nationality">Nationality</label>
+        <input type="text" class="form-control" id="nationality" required [(ngModel)]="detail.nationality" name="nationality" />
+      </div>
+      <div class="form-group">
+        <div>Channeler</div>
+        <button class="badge badge-primary mr-2" (click)="setTrue()">True</button>
+        <button class="badge badge-primary mr-2" (click)="setFalse()">False</button>
+
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control" id="gender" required [(ngModel)]="detail.gender" />
+      </div>
+      <button (click)="saveDetail()" class="btn btn-success">Submit</button>
+
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Character was submitted successfully</h4>
+      <button class="btn btn-success" (click)="newDetail()">Add</button>
+    </div>
+  </div>
+</div>
